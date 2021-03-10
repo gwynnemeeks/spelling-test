@@ -1,6 +1,15 @@
 <template>
   <div id="app">
     <h1>Spelling Test</h1>
+    <form>
+      <input
+        type="text"
+        v-model="userInput"
+        spellcheck="false"
+        placeholder="Spell the word"
+      />
+      <button type="submit">SUBMIT</button>
+    </form>
   </div>
 </template>
 
