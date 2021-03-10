@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>Spelling Test</h1>
-    <form>
+    <form @submit.prevent="handleSubmit">
       <input
         type="text"
         v-model="userInput"
