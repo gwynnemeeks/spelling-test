@@ -24,6 +24,13 @@ export default {
       userInput: "",
     };
   },
+  methods: {
+    handleSubmit() {
+      this.questions[this.activeIndex].userInput = this.userInput;
+      this.activeIndex += 1;
+      this.userInput = ";";
+    },
+  },
 };
 </script>
 
