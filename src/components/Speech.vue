@@ -1,7 +1,7 @@
 <template>
-  <div id="speech">
+  <button @click="sayWord" class="clickable">
     <h3>Say Word</h3>
-  </div>
+  </button>
 </template>
 
 <script>
