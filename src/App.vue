@@ -36,6 +36,11 @@ export default {
       this.userInput = ";";
     },
   },
+  computed: {
+    testFinished() {
+      return this.questions.every((q) => q.userInput);
+    },
+  },
 };
 </script>
 
