@@ -1,6 +1,7 @@
 <template>
   <div>
       <p>Results: {{ correctCount }} / {{ questions.length }}</p>
+      <p v-if="perfectScore">PERFECT SCORE! </p>
 </template>
 
 <script>
