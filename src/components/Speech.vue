@@ -1,6 +1,6 @@
 <template>
   <button @click="sayWord" class="clickable">
-    <h3>Say Word</h3>
+    <h3>Click Here for Test Word</h3>
   </button>
 </template>
 
