@@ -1,6 +1,7 @@
 <template>
   <div>
       <p>Results: {{ correctCount }} / {{ questions.length }}</p>
+      <p v-if="perfectScore">PERFECT SCORE! </p>
 </template>
 
 <script>
@@ -12,6 +13,9 @@ export default {
                 return q.word.toLowerCase() === q.userInput.toLowerCase();
             }).length;
         },
+        perfectScore() {
+            return this.correctCount === this.questions.length;
+        }
     }
 };
 </script>
