@@ -12,6 +12,9 @@ export default {
                 return q.word.toLowerCase() === q.userInput.toLowerCase();
             }).length;
         },
+        perfectScore() {
+            return this.correctCount === this.questions.length;
+        }
     }
 };
 </script>
