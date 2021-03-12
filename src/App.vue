@@ -17,8 +17,11 @@
 
 <script>
 import data from "./data";
+import Speech from "./components/Speech";
 
 export default {
+  components: { Speech },
+
   data() {
     return {
       questions: data,
