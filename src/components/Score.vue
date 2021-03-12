@@ -1,6 +1,6 @@
 <template>
   <div>
-      <p>score</p>
+      <p>Results: {{ correctCount }} / {{ questions.length }}</p>
 </template>
 
 <script>
