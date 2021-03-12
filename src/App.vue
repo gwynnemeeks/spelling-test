@@ -1,27 +1,31 @@
 <template>
   <div id="app">
     <h1>Spelling Test</h1>
-    <p>Word {{ activeIndex + 1 }} of {{ questions.length }}</p>
-    <speech :word="questions[activeIndex].word" />
-    <form @submit.prevent="handleSubmit">
-      <input
-        type="text"
-        v-model="userInput"
-        spellcheck="false"
-        placeholder="Spell the word"
-      />
-      <button type="submit">SUBMIT</button>
-    </form>
+    <div v-if="!testFinished">
+      <p>Word {{ activeIndex + 1 }} of {{ questions.length }}</p>
+      <speech :word="questions[activeIndex].word" />
+      <form @submit.prevent="handleSubmit">
+        <input
+          type="text"
+          v-model="userInput"
+          spellcheck="false"
+          placeholder="Spell the word"
+        />
+        <button type="submit">SUBMIT</button>
+      </form>
+    </div>
+    <div v-else>
+      <score :data="questions" />
+    </div>
   </div>
 </template>
 
 <script>
 import data from "./data";
 import Speech from "./components/Speech";
-
+import Score from "./components/Score";
 export default {
-  components: { Speech },
-
+  components: { Speech, Score },
   data() {
     return {
       questions: data,
@@ -33,7 +37,7 @@ export default {
     handleSubmit() {
       this.questions[this.activeIndex].userInput = this.userInput;
       this.activeIndex += 1;
-      this.userInput = ";";
+      this.userInput = "";
     },
   },
   computed: {
