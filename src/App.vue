@@ -1,23 +1,25 @@
 <template>
-  <div id="app">
-    <h1>Spelling Test</h1>
-    <div v-if="!testFinished">
-      <p>Word {{ activeIndex + 1 }} of {{ questions.length }}</p>
-      <speech :word="questions[activeIndex].word" />
-      <form @submit.prevent="handleSubmit">
-        <input
-          type="text"
-          v-model="userInput"
-          spellcheck="false"
-          placeholder="Spell the word"
-        />
-        <button type="submit">SUBMIT</button>
-      </form>
+  <v-app>
+    <div id="app">
+      <h1>Spelling Test</h1>
+      <div v-if="!testFinished">
+        <p>Word {{ activeIndex + 1 }} of {{ questions.length }}</p>
+        <speech :word="questions[activeIndex].word" />
+        <form @submit.prevent="handleSubmit">
+          <input
+            type="text"
+            v-model="userInput"
+            spellcheck="false"
+            placeholder="Spell the word"
+          />
+          <button type="submit">SUBMIT</button>
+        </form>
+      </div>
+      <div v-else>
+        <score :data="questions" />
+      </div>
     </div>
-    <div v-else>
-      <score :data="questions" />
-    </div>
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -54,7 +56,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #fa8313;
   margin-top: 60px;
 }
 </style>
