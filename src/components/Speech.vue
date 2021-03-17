@@ -1,6 +1,6 @@
 <template>
   <button @click="sayWord" class="clickable">
-    <h3><i class="far fa-play-circle fa-5x"></i></h3>
+    <h3><i class="far fa-play-circle fa-4x"></i></h3>
   </button>
 </template>
 
