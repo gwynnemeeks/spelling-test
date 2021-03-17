@@ -1,60 +1,60 @@
 <template>
-  <div id="app">
-    <h1>Spelling Test</h1>
-    <div v-if="!testFinished">
-      <p>Word {{ activeIndex + 1 }} of {{ questions.length }}</p>
-      <speech :word="questions[activeIndex].word" />
-      <form @submit.prevent="handleSubmit">
-        <input
-          type="text"
-          v-model="userInput"
-          spellcheck="false"
-          placeholder="Spell the word"
+  <v-app>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+      <div class="d-flex align-center">
+        <v-img
+          alt="Vuetify Logo"
+          class="shrink mr-2"
+          contain
+          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          transition="scale-transition"
+          width="40"
         />
-        <button type="submit">SUBMIT</button>
-      </form>
-    </div>
-    <div v-else>
-      <score :data="questions" />
-    </div>
-  </div>
+
+        <v-img
+          alt="Vuetify Name"
+          class="shrink mt-1 hidden-sm-and-down"
+          contain
+          min-width="100"
+          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
+          width="100"
+        />
+      </div>
+
+      <v-spacer></v-spacer>
+
+      <v-btn
+        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        target="_blank"
+        text
+      >
+        <span class="mr-2">Latest Release</span>
+        <v-icon>mdi-open-in-new</v-icon>
+      </v-btn>
+    </v-app-bar>
+
+    <v-main>
+      <HelloWorld/>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import data from "./data";
-import Speech from "./components/Speech";
-import Score from "./components/Score";
+import HelloWorld from './components/HelloWorld';
+
 export default {
-  components: { Speech, Score },
-  data() {
-    return {
-      questions: data,
-      activeIndex: 0,
-      userInput: "",
-    };
+  name: 'App',
+
+  components: {
+    HelloWorld,
   },
-  methods: {
-    handleSubmit() {
-      this.questions[this.activeIndex].userInput = this.userInput;
-      this.activeIndex += 1;
-      this.userInput = "";
-    },
-  },
-  computed: {
-    testFinished() {
-      return this.questions.every((q) => q.userInput);
-    },
-  },
+
+  data: () => ({
+    //
+  }),
 };
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
