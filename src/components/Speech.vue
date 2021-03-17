@@ -1,6 +1,6 @@
 <template>
   <button @click="sayWord" class="clickable">
-    <h3>Click Here for Each Word</h3>
+    <h3><i class="far fa-play-circle fa-5x"></i></h3>
   </button>
 </template>
 
@@ -16,4 +16,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.fa-play-circle {
+  margin-bottom: 20px;
+}
+</style>
